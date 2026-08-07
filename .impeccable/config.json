@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "material symbols outlined",
+        "createdAt": "2026-08-07T20:40:30.446Z",
+        "reason": "Icon font, not a typography choice — used system-wide for Material icons"
+      }
+    ]
+  }
+}

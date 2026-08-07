@@ -1,41 +1,57 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand: "El de la caja azul" -> deep blue as primary identity */
-  --color-primary: #0c3f7e;
-  --color-primary-container: #1f5fa8;
+  /* Brand: "El de la caja azul" -> deep navy as primary identity */
+  --color-primary: #0e192f;
+  --color-primary-container: #3dc7f5;
   --color-on-primary: #ffffff;
 
-  --color-secondary: #1f2a3d;
+  --color-secondary: #0e1625;
   --color-on-secondary: #ffffff;
 
-  /* Taxi-yellow accent for CTAs and highlights */
-  --color-accent: #f2b705;
-  --color-on-accent: #241a00;
+  /* Gold/amber accent for CTAs and highlights */
+  --color-accent: #fabd2e;
+  --color-on-accent: #0b1528;
+
+  /* Cool cyan, used for gradients and secondary highlights */
+  --color-cool: #25c0f4;
+  --color-on-cool: #0b1528;
 
   --color-success: #0f8a4b;
   --color-on-success: #ffffff;
 
-  --color-error: #ba1a1a;
+  --color-error: #ef4343;
   --color-on-error: #ffffff;
 
-  --color-surface: #f7f9fc;
-  --color-surface-alt: #eef2f8;
-  --color-surface-dark: #0b1626;
+  --color-surface: #fbfcfd;
+  --color-surface-alt: #f2f4f8;
+  --color-surface-dark: #0e1625;
   --color-surface-dark-alt: #121f36;
 
-  --color-on-surface: #101826;
-  --color-on-surface-variant: #4b5768;
+  --color-on-surface: #0e1625;
+  --color-on-surface-variant: #5a687c;
   --color-on-surface-dark: #ffffff;
   --color-on-surface-dark-variant: #9aa8bd;
 
-  --color-outline: #b8c2d1;
+  --color-outline: #e2e7ee;
   --color-outline-variant: #d7dee8;
 
-  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
   --font-label: "JetBrains Mono", ui-monospace, monospace;
 
   --container-max-width: 1280px;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
 }
 
 @layer utilities {
