@@ -7,9 +7,6 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-10">
             <div className="space-y-4">
-              <span className="text-success font-label text-xs tracking-widest uppercase font-bold">
-                Contacto
-              </span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
                 Hablemos
               </h2>
@@ -22,7 +19,7 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
                 <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0">
                   <span className="material-symbols-outlined">call</span>
                 </div>
-                <span className="font-semibold text-on-surface">{contact.phone}</span>
+                <a href="tel:+56950646818" className="font-semibold text-on-surface hover:text-primary transition-colors">{contact.phone}</a>
               </div>
               <div className="flex items-center gap-5">
                 <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0">

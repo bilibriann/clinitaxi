@@ -7,11 +7,11 @@ export default function TrustBar({ yearsOfExperience }: { yearsOfExperience: str
   ];
 
   return (
-    <section className="bg-surface-dark hidden md:block">
-      <div className="container-max mx-auto px-12">
-        <div className="grid grid-cols-4 divide-x divide-white/10">
+    <section className="bg-surface-dark">
+      <div className="container-max mx-auto px-4 md:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
           {items.map((item) => (
-            <div key={item.icon} className="flex items-center gap-3 p-6">
+            <div key={item.icon} className="flex items-center gap-3 p-4 md:p-6 bg-surface-dark">
               <span className="material-symbols-outlined text-accent">{item.icon}</span>
               <span className="text-white/90 text-sm font-medium">{item.label}</span>
             </div>

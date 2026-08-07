@@ -50,7 +50,7 @@ export default function Footer({ contact, socialLinks, yearsOfExperience }: Foot
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex items-center gap-2">
               <span className="material-symbols-outlined text-base text-accent">call</span>{' '}
-              {contact.phone}
+              <a href="tel:+56950646818" className="hover:text-white transition-colors">{contact.phone}</a>
             </li>
             <li className="flex items-center gap-2">
               <span className="material-symbols-outlined text-base text-accent">
@@ -62,7 +62,6 @@ export default function Footer({ contact, socialLinks, yearsOfExperience }: Foot
         </div>
         <div className="space-y-4">
           <h4 className="text-accent font-bold uppercase tracking-widest text-xs">Síguenos</h4>
-          {/* TODO: reemplazar "#" por las URLs reales de cada red social */}
           <div className="flex gap-3">
             {socialLinks.map((social) => (
               <a
