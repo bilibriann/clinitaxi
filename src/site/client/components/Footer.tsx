@@ -13,7 +13,7 @@ export default function Footer({ contact, socialLinks, yearsOfExperience }: Foot
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-accent text-2xl">local_taxi</span>
-            <span className="font-bold text-lg">CLINITAXi</span>
+            <span className="font-wordmark italic font-bold text-xl">CLINITAXi</span>
           </div>
           <p className="text-white/60 text-sm leading-relaxed">
             Taxímetros certificados y no adulterables, con más de {yearsOfExperience} años de
@@ -49,14 +49,22 @@ export default function Footer({ contact, socialLinks, yearsOfExperience }: Foot
           <h4 className="text-accent font-bold uppercase tracking-widest text-xs">Contacto</h4>
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-base text-accent">call</span>{' '}
-              <a href="tel:+56950646818" className="hover:text-white transition-colors">{contact.phone}</a>
-            </li>
-            <li className="flex items-center gap-2">
               <span className="material-symbols-outlined text-base text-accent">
                 location_on
               </span>{' '}
               Quinta Normal, Chile
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-base text-accent">call</span>{' '}
+              <a href="tel:+56950646818" className="hover:text-white transition-colors">{contact.phone}</a>
+            </li>
+            <li className="border-t border-white/10 pt-3 flex items-center gap-2">
+              <span className="material-symbols-outlined text-base text-accent">mail</span>{' '}
+              <a href={`mailto:${contact.email}`} className="hover:text-white transition-colors">{contact.email}</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-base text-accent">language</span>{' '}
+              <a href={`https://${contact.website}`} className="hover:text-white transition-colors">{contact.website}</a>
             </li>
           </ul>
         </div>

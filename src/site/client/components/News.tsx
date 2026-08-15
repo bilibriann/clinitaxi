@@ -1,11 +1,11 @@
 export default function News() {
   return (
-    <section id="noticias" className="py-24 bg-surface-alt border-t border-outline-variant/40">
+    <section id="noticias" className="py-24 bg-surface-dark">
       <div className="container-max mx-auto px-4 md:px-12">
         <span className="text-success font-label text-xs tracking-widest uppercase font-bold">
           Noticias
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight mt-2 mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mt-2 mb-10">
           Últimas novedades
         </h2>
         <div className="bg-white rounded-2xl p-8 md:p-10 shadow-[0_4px_24px_rgba(12,63,126,0.08)] max-w-3xl">

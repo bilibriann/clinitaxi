@@ -9,7 +9,7 @@
     "build:client": "vite build",
     "build": "npm run build:client && nest build",
     "dev": "concurrently -n nest,vite -c blue,yellow \"npm:start:dev\" \"npm:dev:client\"",
-    "dev:client": "vite",
+    "dev:client": "vite build --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",

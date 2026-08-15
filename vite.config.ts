@@ -9,5 +9,11 @@ export default defineConfig({
   build: {
     outDir: '../../public',
     emptyOutDir: true,
+    watch: {
+      chokidar: {
+        usePolling: true,
+        interval: 300,
+      },
+    },
   },
 });

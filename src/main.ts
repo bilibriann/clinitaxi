@@ -26,7 +26,7 @@ async function listenWithPortFallback(
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.useStaticAssets(join(__dirname, 'public'));
+  app.useStaticAssets(join(__dirname, '..', 'src', 'public'));
   const basePort = Number(process.env.PORT) || 3000;
   const port = await listenWithPortFallback(app, basePort);
   console.log(`Aplicación escuchando en http://localhost:${port}`);

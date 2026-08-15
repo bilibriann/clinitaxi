@@ -28,6 +28,8 @@ export interface SiteViewModel {
     phone: string;
     hours: string;
     address: string;
+    email: string;
+    website: string;
     mapEmbedSrc: string;
   };
   socialLinks: SocialLink[];
@@ -67,6 +69,8 @@ export class SiteService {
         phone: '+569 5064 6818',
         hours: 'Lun a Vie, 9:30 - 16:00 hrs (horario continuado)',
         address: 'Vargas Fontecilla 4399, Quinta Normal, Chile',
+        email: 'info@clinitaxi.cl',
+        website: 'www.clinitaxi.cl',
         mapEmbedSrc:
           'https://www.google.com/maps?q=Vargas+Fontecilla+4399,+Quinta+Normal,+Chile&output=embed',
       },
