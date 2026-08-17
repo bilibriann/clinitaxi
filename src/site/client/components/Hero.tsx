@@ -1,6 +1,18 @@
+import { useRef } from 'react';
+import AdaptiveText from './AdaptiveText';
+
 export default function Hero({ yearsOfExperience }: { yearsOfExperience: string }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const adaptive = {
+    imageSrc: '/images/hero-swoosh.png',
+    sectionRef,
+    lightClassName: 'text-white',
+    darkClassName: 'text-primary',
+  };
+
   return (
     <section
+      ref={sectionRef}
       id="inicio"
       className="relative overflow-hidden pt-40 pb-28 md:pt-48 md:pb-36"
       style={{
@@ -10,16 +22,19 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="container-max mx-auto px-4 md:px-12 relative z-10">
+      <div className="container-max mx-auto px-4 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-[#3d4654] leading-[1.1] tracking-tight">
-              Taxímetros certificados.<br className="hidden md:block" />{' '}
-              <span className="text-[#3d4654]">El de la caja azul.</span>
+            <h1 className="text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+              <AdaptiveText text="Taxímetros certificados." {...adaptive} />
+              <br className="hidden md:block" />{' '}
+              <AdaptiveText text="El de la caja azul." {...adaptive} />
             </h1>
-            <p className="text-[#3d4654] text-lg md:text-xl max-w-xl">
-              Equipos no adulterables, aprobados por el Ministerio de Transportes de Chile, con
-              más de {yearsOfExperience} años de trayectoria y cobertura a nivel nacional.
+            <p className="text-lg lg:text-xl max-w-xl">
+              <AdaptiveText
+                text={`Equipos no adulterables, aprobados por el Ministerio de Transportes de Chile, con más de ${yearsOfExperience} años de trayectoria y cobertura a nivel nacional.`}
+                {...adaptive}
+              />
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <a
@@ -37,7 +52,7 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
               </a>
               <a
                 href="#contacto"
-                className="border-2 border-on-surface-variant/40 text-[#3d4654] px-8 py-4 rounded-lg font-bold hover:bg-on-surface/5 transition-all text-base"
+                className="bg-white border-2 border-outline text-primary px-8 py-4 rounded-lg font-bold hover:bg-surface-alt transition-all text-base"
               >
                 Contáctanos
               </a>

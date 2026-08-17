@@ -3,16 +3,71 @@ import type { SiteViewModel } from '../../site.service';
 export default function Contact({ contact }: { contact: SiteViewModel['contact'] }) {
   return (
     <section id="contacto" className="relative overflow-hidden py-24 bg-white">
-      <div className="absolute inset-0 overflow-hidden">
-        <svg
-          className="absolute bottom-0 left-0 w-full md:w-1/2 h-64 md:h-80 lg:h-96"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M0,100 L0,15 C 30,35 55,65 68,100 Z" fill="#1c6fd8" />
-          <path d="M0,100 L0,26 C 27,44 48,68 58,100 Z" fill="#0e192f" />
-        </svg>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          backgroundImage: 'url(/images/hero-background.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom left',
+          backgroundRepeat: 'no-repeat',
+          transform: 'scaleY(-1)',
+        }}
+      />
+      {/* Duplicado decorativo en blanco de los datos de contacto, recortado con una
+          versión ya invertida verticalmente del swoosh (hero-swoosh-flip.svg) que
+          coincide con el fondo espejado: solo se revela sobre la franja navy/azul,
+          dejando ver el texto oscuro de abajo sobre el blanco. El texto en sí no se
+          transforma, solo la máscara. Se ajusta solo a cualquier ancho de pantalla. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-20 pointer-events-none py-24"
+        style={{
+          maskImage: 'url(/images/hero-swoosh-flip.svg)',
+          maskSize: 'cover',
+          maskPosition: 'bottom left',
+          maskRepeat: 'no-repeat',
+          WebkitMaskImage: 'url(/images/hero-swoosh-flip.svg)',
+          WebkitMaskSize: 'cover',
+          WebkitMaskPosition: 'bottom left',
+          WebkitMaskRepeat: 'no-repeat',
+        }}
+      >
+        <div className="container-max mx-auto px-4 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="space-y-10">
+              <div className="space-y-4 invisible">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Hablemos</h2>
+                <p className="text-lg max-w-md">
+                  Escríbenos y nuestro equipo te responderá a la brevedad.
+                </p>
+              </div>
+              <div className="space-y-5">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-full shrink-0" />
+                  <span className="font-semibold text-white">{contact.phone}</span>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-full shrink-0" />
+                  <span className="font-semibold text-white">{contact.hours}</span>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-full shrink-0" />
+                  <span className="font-semibold text-white">{contact.address}</span>
+                </div>
+                <div className="h-px" />
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-full shrink-0" />
+                  <span className="font-semibold text-white">{contact.email}</span>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-full shrink-0" />
+                  <span className="font-semibold text-white">{contact.website}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="container-max mx-auto px-4 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
