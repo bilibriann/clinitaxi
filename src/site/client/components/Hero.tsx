@@ -1,10 +1,15 @@
 import { useRef } from 'react';
 import AdaptiveText from './AdaptiveText';
 
-export default function Hero({ yearsOfExperience }: { yearsOfExperience: string }) {
+export default function Hero({
+  yearsOfExperience,
+}: {
+  yearsOfExperience: string;
+}) {
   const sectionRef = useRef<HTMLElement>(null);
+  const base = import.meta.env.BASE_URL;
   const adaptive = {
-    imageSrc: '/images/hero-swoosh.png',
+    imageSrc: `${base}images/hero-swoosh.png`,
     sectionRef,
     lightClassName: 'text-white',
     darkClassName: 'text-primary',
@@ -16,7 +21,7 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
       id="inicio"
       className="relative overflow-hidden pt-40 pb-28 md:pt-48 md:pb-36"
       style={{
-        backgroundImage: 'url(/images/hero-background.png)',
+        backgroundImage: `url(${base}images/hero-background.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'bottom left',
         backgroundRepeat: 'no-repeat',
@@ -28,7 +33,8 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
             <h1 className="text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
               <AdaptiveText text="Taxímetros certificados." {...adaptive} />
               <br className="hidden md:block" />{' '}
-              <AdaptiveText text="El de la caja azul." {...adaptive} />
+              <AdaptiveText text="El de la caja" {...adaptive} />{' '}
+              <span className="text-primary">Azul</span>
             </h1>
             <p className="text-lg lg:text-xl max-w-xl">
               <AdaptiveText
@@ -41,7 +47,12 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
                 href="tel:+56950646818"
                 className="lg:hidden bg-accent text-on-accent px-8 py-4 rounded-lg font-bold hover:brightness-110 active:scale-95 transition-all text-base flex items-center gap-2"
               >
-                <span className="material-symbols-outlined text-lg" aria-hidden="true">call</span>
+                <span
+                  className="material-symbols-outlined text-lg"
+                  aria-hidden="true"
+                >
+                  call
+                </span>
                 Llamar ahora
               </a>
               <a
@@ -66,7 +77,12 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
                 <div className="bg-secondary/95 backdrop-blur-sm px-8 pt-8 pb-7 space-y-6">
                   <div className="flex gap-4 items-start">
                     <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-accent text-2xl" aria-hidden="true">workspace_premium</span>
+                      <span
+                        className="material-symbols-outlined text-accent text-2xl"
+                        aria-hidden="true"
+                      >
+                        workspace_premium
+                      </span>
                     </div>
                     <h3 className="text-white font-extrabold text-xl leading-tight">
                       Autorizado por el Ministerio de Transportes de Chile
@@ -75,22 +91,50 @@ export default function Hero({ yearsOfExperience }: { yearsOfExperience: string 
                   <div className="border-t border-white/10" />
                   <ul className="space-y-4">
                     <li className="flex items-center gap-3">
-                      <span className="material-symbols-outlined text-accent text-lg shrink-0" aria-hidden="true">lock</span>
-                      <span className="text-white/80 text-sm">Equipos no adulterables</span>
+                      <span
+                        className="material-symbols-outlined text-accent text-lg shrink-0"
+                        aria-hidden="true"
+                      >
+                        lock
+                      </span>
+                      <span className="text-white/80 text-sm">
+                        Equipos no adulterables
+                      </span>
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="material-symbols-outlined text-accent text-lg shrink-0" aria-hidden="true">verified_user</span>
-                      <span className="text-white/80 text-sm">Certificación normativa vigente</span>
+                      <span
+                        className="material-symbols-outlined text-accent text-lg shrink-0"
+                        aria-hidden="true"
+                      >
+                        verified_user
+                      </span>
+                      <span className="text-white/80 text-sm">
+                        Certificación normativa vigente
+                      </span>
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="material-symbols-outlined text-accent text-lg shrink-0" aria-hidden="true">public</span>
-                      <span className="text-white/80 text-sm">Cobertura en 8 regiones</span>
+                      <span
+                        className="material-symbols-outlined text-accent text-lg shrink-0"
+                        aria-hidden="true"
+                      >
+                        public
+                      </span>
+                      <span className="text-white/80 text-sm">
+                        Cobertura en 8 regiones
+                      </span>
                     </li>
                   </ul>
                   <div className="border-t border-white/10" />
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-accent" aria-hidden="true">local_taxi</span>
-                    <span className="text-white/50 text-xs">CLINITAXi · El de la caja azul</span>
+                    <span
+                      className="material-symbols-outlined text-accent"
+                      aria-hidden="true"
+                    >
+                      local_taxi
+                    </span>
+                    <span className="text-white/50 text-xs">
+                      CLINITAXi · El de la caja azul
+                    </span>
                   </div>
                 </div>
               </div>

@@ -58,27 +58,5 @@ pids
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# impeccable-ignore-start
-# Machine-local / per-developer (hooks.md: settings.local.json y config.local.json
-# se mantienen locales; config.local.json guarda el consentimiento del hook)
+# Machine-local / per-developer
 .claude/settings.local.json
-.impeccable/config.local.json
-
-# Cache y artefactos de ejecución del detector
-.impeccable/hook.cache.json
-.impeccable/hook.pending.json
-.impeccable/baseline.json
-
-# Runtime de live-session, pero se versiona su config compartida.
-# Debe ser live/* y no live/, porque git no entra a un directorio excluido
-# y el "!" no podria reincorporar config.json.
-.impeccable/live/*
-!.impeccable/live/config.json
-
-# Assets generados (imagenes/mockups)
-.impeccable/mocks/
-.impeccable/sketches/
-
-# Se versionan explicitamente: .impeccable/config.json, .impeccable/design.json,
-# .impeccable/live/config.json y .impeccable/critique/*.md
-# impeccable-ignore-end
