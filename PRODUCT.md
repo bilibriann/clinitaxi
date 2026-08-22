@@ -10,17 +10,17 @@ NestJS 11 (API) + React 19 + Vite 6 + Tailwind CSS v4. Dev: `npm run dev` (concu
 
 ## Users
 
-**Taxistas independientes** — conductores individuales que necesitan certificar, instalar o reparar su taxímetro para cumplir la normativa del Ministerio de Transportes. Visitan el sitio para confirmar que CLINITAXi es el proveedor autorizado y encontrar dónde contactarlos.
+**Taxistas independientes** — conductores individuales que necesitan certificar, instalar o reparar su taxímetro para cumplir la normativa del Ministerio de Transportes. Visitan el sitio para confirmar que CLINITAXI es el proveedor autorizado y encontrar dónde contactarlos.
 
 **Dueños de flota / empresas de taxi** — administran múltiples vehículos; buscan un proveedor confiable con cobertura nacional y capacidad de atención masiva. Ambas audiencias tienen igual peso.
 
 ## Product Purpose
 
-CLINITAXi vende, instala y certifica taxímetros en Chile. El sitio es una página informativa cuyo objetivo es convertir visitantes en contactos calificados (llamada o formulario). El éxito es que el taxista o gestor de flota termine sabiendo que CLINITAXi es el proveedor correcto y tome acción de contacto.
+CLINITAXI vende, instala y certifica taxímetros en Chile. El sitio es una página informativa cuyo objetivo es convertir visitantes en contactos calificados (llamada o formulario). El éxito es que el taxista o gestor de flota termine sabiendo que CLINITAXI es el proveedor correcto y tome acción de contacto.
 
 ## Positioning
 
-CLINITAXi es **la única empresa autorizada** (o una de muy pocas) por el Ministerio de Transportes de Chile para certificar taxímetros no adulterables. Ningún competidor puede copiar esa credencial oficial. Refuerza con 25+ años de trayectoria y la identidad de marca "el de la caja azul".
+CLINITAXI es **la única empresa autorizada** (o una de muy pocas) por el Ministerio de Transportes de Chile para certificar taxímetros no adulterables. Ningún competidor puede copiar esa credencial oficial. Refuerza con 25+ años de trayectoria.
 
 ## Operating Context
 
@@ -31,8 +31,8 @@ CLINITAXi es **la única empresa autorizada** (o una de muy pocas) por el Minist
 
 ## Capabilities and Constraints
 
-- Secciones confirmadas: Inicio (Hero), Barra de confianza, Servicios, Productos, Cobertura (8 regiones), Noticias, Contacto, Footer.
-- Cobertura: La Serena, Valparaíso, Santiago, Curicó, Concepción, Linares, Temuco, Punta Arenas.
+- Secciones confirmadas: Inicio (Hero), Barra de confianza, Servicios, Productos, Cobertura (9 regiones), Noticias, Contacto, Footer.
+- Cobertura: La Serena, Valparaíso, Santiago, Curicó, Linares, Concepción, Temuco, Valdivia, Punta Arenas. Cada región tiene un representante con nombre y teléfono directo.
 - Contacto: +569 5064 6818 · Lun–Vie 9:30–16:00 · Vargas Fontecilla 4399, Quinta Normal.
 - Redes sociales: Facebook, Instagram, Twitter/X, YouTube (URLs pendientes de confirmar).
 - Los taxímetros son **no adulterables**, requisito legal en Chile.
@@ -40,14 +40,13 @@ CLINITAXi es **la única empresa autorizada** (o una de muy pocas) por el Minist
 
 ## Brand Commitments
 
-- **Nombre**: CLINITAXi (capitalización mixta, la "i" final en minúscula es parte del logo).
-- **Tagline**: "El de la caja azul" — identidad reconocida en el mercado; debe aparecer en el hero.
+- **Nombre**: CLINITAXI (todo en mayúsculas, como aparece en la etiqueta del equipo).
 - **Activos disponibles**: logo oficial, fotos de productos (taxímetros/equipos), fotos de equipo e instalaciones.
 - **Colores actuales**: azul marino profundo (`#0e192f`) como primario, dorado/ámbar (`#fabd2e`) como acento. El ejemplo de referencia (carpeta `example/`) marca la dirección visual del rediseño.
 
 ## Evidence on Hand
 
-- Fotos de productos reales (taxímetros) — por proveer por el cliente.
+- Foto de producto real: taxímetro Metrix-F185 (`public/images/taximetro.jpg`), usada en la sección Productos.
 - Fotos de instalaciones y equipo técnico — por proveer por el cliente.
 - Logo oficial — por proveer por el cliente.
 - 25+ años de experiencia como claim verificable.

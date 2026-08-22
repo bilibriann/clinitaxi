@@ -1,9 +1,27 @@
 export default function Products() {
+  const base = import.meta.env.BASE_URL;
+
   return (
     <section id="productos" className="py-24 bg-cool">
       <div className="container-max mx-auto px-4 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 bg-white rounded-2xl p-10 shadow-[0_4px_24px_rgba(12,63,126,0.08)] space-y-6">
+            <figure className="space-y-3">
+              <img
+                src={`${base}images/taximetro.jpg`}
+                srcSet={`${base}images/taximetro-800.jpg 800w, ${base}images/taximetro.jpg 1600w`}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                width={1600}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                alt="Taxímetro CLINITAXI modelo Metrix-F185 con pantalla azul encendida e impresora"
+                className="w-full rounded-xl shadow-[0_4px_24px_rgba(12,63,126,0.12)]"
+              />
+              <figcaption className="text-sm text-on-surface-variant">
+                Taxímetro certificado modelo Metrix-F185.
+              </figcaption>
+            </figure>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-surface-alt">
               <span className="material-symbols-outlined text-primary">speed</span>
               <span className="font-medium text-on-surface">Taxímetros certificados</span>

@@ -13,7 +13,7 @@ export default function Footer({ contact, socialLinks, yearsOfExperience }: Foot
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-accent text-2xl">local_taxi</span>
-            <span className="font-wordmark italic font-bold text-xl">CLINITAXi</span>
+            <span className="font-wordmark italic font-bold text-xl">CLINITAXI</span>
           </div>
           <p className="text-white/60 text-sm leading-relaxed">
             Taxímetros certificados y no adulterables, con más de {yearsOfExperience} años de
@@ -85,7 +85,7 @@ export default function Footer({ contact, socialLinks, yearsOfExperience }: Foot
         </div>
       </div>
       <div className="container-max mx-auto px-4 md:px-12 mt-12 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
-        © 2026 CLINITAXi. Todos los derechos reservados.
+        © 2026 CLINITAXI. Todos los derechos reservados.
       </div>
     </footer>
   );

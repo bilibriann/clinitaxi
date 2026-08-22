@@ -14,7 +14,10 @@ export default function App() {
     <>
       <Header nav={siteData.nav} />
       <main>
-        <Hero yearsOfExperience={siteData.stats.yearsOfExperience} />
+        <Hero
+          yearsOfExperience={siteData.stats.yearsOfExperience}
+          regionsCovered={siteData.stats.regionsCovered}
+        />
         <TrustBar yearsOfExperience={siteData.stats.yearsOfExperience} />
         <Services stats={siteData.stats} />
         <Products />

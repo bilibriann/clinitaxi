@@ -29,7 +29,7 @@ export default function Header({ nav }: { nav: NavLink[] }) {
           <span
             className={`font-wordmark italic font-bold text-2xl tracking-tight transition-colors ${scrolled ? 'text-primary' : 'text-on-primary'}`}
           >
-            CLINITAXi
+            CLINITAXI
           </span>
         </a>
         <div className="hidden md:flex gap-8 items-center">
@@ -50,7 +50,7 @@ export default function Header({ nav }: { nav: NavLink[] }) {
         <div className="flex items-center gap-3">
           <a
             href="tel:+56950646818"
-            aria-label="Llamar a CLINITAXi"
+            aria-label="Llamar a CLINITAXI"
             className={`md:hidden w-11 h-11 rounded-lg flex items-center justify-center transition-colors ${
               scrolled
                 ? 'bg-primary/10 text-primary hover:bg-primary/20'

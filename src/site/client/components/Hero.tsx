@@ -3,8 +3,10 @@ import AdaptiveText from './AdaptiveText';
 
 export default function Hero({
   yearsOfExperience,
+  regionsCovered,
 }: {
   yearsOfExperience: string;
+  regionsCovered: number;
 }) {
   const sectionRef = useRef<HTMLElement>(null);
   const base = import.meta.env.BASE_URL;
@@ -32,9 +34,6 @@ export default function Hero({
           <div className="space-y-8">
             <h1 className="text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
               <AdaptiveText text="Taxímetros certificados." {...adaptive} />
-              <br className="hidden md:block" />{' '}
-              <AdaptiveText text="El de la caja" {...adaptive} />{' '}
-              <span className="text-primary">Azul</span>
             </h1>
             <p className="text-lg lg:text-xl max-w-xl">
               <AdaptiveText
@@ -70,75 +69,73 @@ export default function Hero({
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-center">
-            <div className="relative w-full max-w-xs">
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/40 border border-white/10">
-                <div className="h-1 bg-accent" />
-                <div className="bg-secondary/95 backdrop-blur-sm px-8 pt-8 pb-7 space-y-6">
-                  <div className="flex gap-4 items-start">
-                    <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0">
+          <div className="hidden lg:flex justify-end">
+            <div className="relative w-full max-w-xl">
+              <img
+                src={`${base}images/taximetro.jpg`}
+                srcSet={`${base}images/taximetro-800.jpg 800w, ${base}images/taximetro.jpg 1600w`}
+                sizes="(min-width: 1280px) 576px, 45vw"
+                width={1600}
+                height={900}
+                fetchPriority="high"
+                decoding="async"
+                alt="Taxímetro CLINITAXI Metrix-F185 con su pantalla azul encendida"
+                className="w-full rounded-3xl shadow-2xl shadow-black/50 border border-white/10 object-cover"
+              />
+              <div className="absolute -bottom-6 -left-8 w-60 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10">
+                <div className="h-0.5 bg-accent" />
+                <div className="bg-secondary/95 backdrop-blur-sm px-4 py-4 space-y-3">
+                  <div className="flex gap-2.5 items-start">
+                    <div className="w-8 h-8 rounded-lg bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0">
                       <span
-                        className="material-symbols-outlined text-accent text-2xl"
+                        className="material-symbols-outlined text-accent text-base"
                         aria-hidden="true"
                       >
                         workspace_premium
                       </span>
                     </div>
-                    <h3 className="text-white font-extrabold text-xl leading-tight">
-                      Autorizado por el Ministerio de Transportes de Chile
+                    <h3 className="text-white font-bold text-sm leading-snug">
+                      Autorizado por el Ministerio de Transportes
                     </h3>
                   </div>
-                  <div className="border-t border-white/10" />
-                  <ul className="space-y-4">
-                    <li className="flex items-center gap-3">
+                  <ul className="space-y-2 border-t border-white/10 pt-3">
+                    <li className="flex items-center gap-2">
                       <span
-                        className="material-symbols-outlined text-accent text-lg shrink-0"
+                        className="material-symbols-outlined text-accent text-sm shrink-0"
                         aria-hidden="true"
                       >
                         lock
                       </span>
-                      <span className="text-white/80 text-sm">
+                      <span className="text-white/80 text-xs">
                         Equipos no adulterables
                       </span>
                     </li>
-                    <li className="flex items-center gap-3">
+                    <li className="flex items-center gap-2">
                       <span
-                        className="material-symbols-outlined text-accent text-lg shrink-0"
+                        className="material-symbols-outlined text-accent text-sm shrink-0"
                         aria-hidden="true"
                       >
                         verified_user
                       </span>
-                      <span className="text-white/80 text-sm">
-                        Certificación normativa vigente
+                      <span className="text-white/80 text-xs">
+                        Certificación vigente
                       </span>
                     </li>
-                    <li className="flex items-center gap-3">
+                    <li className="flex items-center gap-2">
                       <span
-                        className="material-symbols-outlined text-accent text-lg shrink-0"
+                        className="material-symbols-outlined text-accent text-sm shrink-0"
                         aria-hidden="true"
                       >
                         public
                       </span>
-                      <span className="text-white/80 text-sm">
-                        Cobertura en 8 regiones
+                      <span className="text-white/80 text-xs">
+                        Cobertura en {regionsCovered} regiones
                       </span>
                     </li>
                   </ul>
-                  <div className="border-t border-white/10" />
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="material-symbols-outlined text-accent"
-                      aria-hidden="true"
-                    >
-                      local_taxi
-                    </span>
-                    <span className="text-white/50 text-xs">
-                      CLINITAXi · El de la caja azul
-                    </span>
-                  </div>
                 </div>
               </div>
-              <div className="absolute -bottom-2 -right-2 w-full h-full rounded-2xl border border-accent/20 -z-10" />
+              <div className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border border-accent/20 -z-10" />
             </div>
           </div>
         </div>

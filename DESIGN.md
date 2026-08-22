@@ -1,6 +1,6 @@
 ---
-name: CLINITAXi
-description: Taxímetros certificados y no adulterables — El de la caja azul
+name: CLINITAXI
+description: Taxímetros certificados y no adulterables
 colors:
   primary: "#0e192f"
   primary-container: "#123a75"
@@ -93,15 +93,15 @@ components:
     textColor: "{colors.on-secondary}"
 ---
 
-# Design System: CLINITAXi
+# Design System: CLINITAXI
 
 ## Overview
 
 **Creative North Star: "La Caja Azul"**
 
-CLINITAXi's visual language is built around a single organizing truth: this is a physical, certified instrument — solid, precise, and officially stamped. The system does not perform modernity; it performs authority. Every surface is either the deep night navy of the device body or the near-white of a clean technical document. The blue arrives as a mark of certification and identity — it is the exact blue of the company's physical pendón and taxi-roof signage, "la caja azul" made literal — and its presence signals brand, action, and trust wherever it appears.
+CLINITAXI's visual language is built around a single organizing truth: this is a physical, certified instrument — solid, precise, and officially stamped. The system does not perform modernity; it performs authority. Every surface is either the deep night navy of the device body or the near-white of a clean technical document. The blue arrives as a mark of certification and identity — it is the exact blue of the company's physical pendón and taxi-roof signage — and its presence signals brand, action, and trust wherever it appears.
 
-The design is official and precise, like a well-designed government form: structure is always visible, actions are never ambiguous, and ornament earns its presence only when it carries information. The system leans on weight, position, and a disciplined two-blue palette for emphasis rather than a rainbow of hues. When navy dominates, it means reliability; when the medium blue appears, it means "this is CLINITAXi" or "act now." There is no pastiche modernism here — only the confidence of 25+ years of a company that knows exactly what it is.
+The design is official and precise, like a well-designed government form: structure is always visible, actions are never ambiguous, and ornament earns its presence only when it carries information. The system leans on weight, position, and a disciplined two-blue palette for emphasis rather than a rainbow of hues. When navy dominates, it means reliability; when the medium blue appears, it means "this is CLINITAXI" or "act now." There is no pastiche modernism here — only the confidence of 25+ years of a company that knows exactly what it is.
 
 The voice is direct and technical without being cold. The product is a legal requirement; the design acknowledges that gravity without being intimidating. A taxi driver on a phone should feel, in three seconds, that they have found the right place.
 
@@ -110,7 +110,7 @@ The voice is direct and technical without being cold. The product is a legal req
 - Medium "caja azul" blue as the brand and certification signal — CTAs, credential icons, nav CTA
 - Navy header — the fixed nav is the same institutional navy as hero/footer, not the accent blue
 - Space Grotesk headlines carry the brand's precision; Inter body text keeps it accessible
-- Saira Condensed italic bold for the "CLINITAXi" wordmark, echoing the lettering on the company's pendón
+- Saira Condensed italic bold for the "CLINITAXI" wordmark, echoing the lettering on the company's pendón
 - JetBrains Mono labels add the "technical instrument" register in small doses
 - The pendón swoosh image is the hero's only decorative element — all else is functional
 - Glassmorphism in the fixed nav is the only depth trick; everything else is flat or tonal
@@ -125,7 +125,7 @@ Deep navy authority meets the "caja azul" brand blue — a palette that reads as
 - **Azul Intermedio** (`#121f36`): Dark surface alt for hover states and layered dark containers.
 
 ### Secondary
-- **Azul Caja** (`#1c6fd8`): The medium, high-visibility blue lifted from the CLINITAXi pendón — used as `accent` for CTAs and brand-carrying icons. This is the "caja azul" color; it is the brand as much as the navy is.
+- **Azul Caja** (`#1c6fd8`): The medium, high-visibility blue lifted from the CLINITAXI pendón — used as `accent` for CTAs and brand-carrying icons. This is the "caja azul" color; it is the brand as much as the navy is.
 - **Azul Hover** (`#123a75`): Mid-dark blue used as `primary-container`, the hover/pressed state for navy (`primary`) buttons and links. Sits between Azul Noche and Azul Caja in value.
 - **Azul Cielo** (`#3f93e8`): Lighter blue used as `cool`, reserved for gradient transitions and secondary highlights — the lightest step in the swoosh gradient seen on the pendón. Never a CTA color on its own.
 
@@ -142,7 +142,7 @@ Deep navy authority meets the "caja azul" brand blue — a palette that reads as
 
 ### Named Rules
 
-**La Regla del Azul Caja.** Azul Caja (`#1c6fd8`) appears only on: primary CTAs (including the header's nav CTA), the accent stripe of the credential card, and certification icons on dark surfaces. On light surfaces, Azul Caja exists only in CTA buttons and brand-carrying text (e.g. "El de la caja azul" in the hero). It never backgrounds a full section — including the header, which stays institutional navy; it certifies and identifies, it does not decorate.
+**La Regla del Azul Caja.** Azul Caja (`#1c6fd8`) appears only on: primary CTAs (including the header's nav CTA), the accent stripe of the credential card, and certification icons on dark surfaces. On light surfaces, Azul Caja exists only in CTA buttons and brand-carrying text (e.g. the wordmark). It never backgrounds a full section — including the header, which stays institutional navy; it certifies and identifies, it does not decorate.
 
 **La Regla del Éxito.** Success green (`#0f8a4b`) is reserved for state feedback — form validation confirmations, certification status chips, completed-step indicators. It is not a section label color. When it appears mid-page outside a feedback context, remove it.
 
@@ -236,7 +236,7 @@ The form language is **structured and institutional** — geometric, clean-corne
 ### Navigation
 
 - **Fixed header:** 80px height · Azul Noche navy background (`#0e192f` at 95% opacity) · Glassmorphism (`backdrop-blur-12px`) · Bottom border `border-white/10`
-- **Logo:** Local taxi icon (Material Symbols) + "CLINITAXi" wordmark in Saira Condensed, 700 weight italic, 20px+ · `text-on-primary` (white)
+- **Logo:** Local taxi icon (Material Symbols) + "CLINITAXI" wordmark in Saira Condensed, 700 weight italic, 20px+ · `text-on-primary` (white)
 - **Nav links:** `text-on-primary/90` at rest · `text-on-primary` on hover · 14px 500 weight Inter
 - **Mobile:** Nav links hidden; white/15-on-navy call icon button (44×44px) + azul caja Contáctanos CTA only
 
@@ -255,9 +255,9 @@ The credential plate in the hero right column. This is the brand's primary trust
 
 ### Wordmark
 
-The "CLINITAXi" name-mark, echoing the italic condensed lettering on the company's pendón, appears in Header and Footer.
+The "CLINITAXI" name-mark, echoing the italic condensed lettering on the company's pendón, appears in Header and Footer.
 
-- **Font:** Saira Condensed, 700 (or 800) weight, italic style · uppercase or brand mixed-case ("CLINITAXi")
+- **Font:** Saira Condensed, 700 (or 800) weight, italic style · uppercase ("CLINITAXI")
 - **Usage:** Only for the standalone wordmark — never for section headings or body copy, which stay on Space Grotesk / Inter.
 
 ## Do's and Don'ts
@@ -267,13 +267,13 @@ The "CLINITAXi" name-mark, echoing the italic condensed lettering on the company
 - **Do** treat Azul Caja (`#1c6fd8`) as the brand and certification color — reserve it for primary CTAs (including the header's nav CTA) and credential icons. It's the exact blue of the pendón and the taxi-roof box; every appearance is deliberate.
 - **Do** keep the fixed header on institutional navy (`#0e192f`), matching hero and footer — the header is a dark authority surface, not an accent surface.
 - **Do** apply Space Grotesk at 700–800 weight for all section headings. The geometric construction is the brand's typographic character; never swap it for a softer display face.
-- **Do** set the "CLINITAXi" wordmark in Saira Condensed italic bold, matching the pendón lettering — but only the wordmark, not other headings.
+- **Do** set the "CLINITAXI" wordmark in Saira Condensed italic bold, matching the pendón lettering — but only the wordmark, not other headings.
 - **Do** make the phone number a `<a href="tel:+56950646818">` link everywhere it appears. The primary user is on mobile.
 - **Do** keep the azul caja top stripe on the credential card — it is the visual "stamp" that makes the card read as certified.
 - **Do** use `rounded-sm` (8px) on all interactive controls (buttons, inputs). Consistency here is the system's precision signal.
 
 ### Don't:
-- **Don't** reintroduce amber/gold anywhere in the palette — it was based on an unrelated reference and does not match CLINITAXi's real signage. Azul Caja (`#1c6fd8`) is the only accent.
+- **Don't** reintroduce amber/gold anywhere in the palette — it was based on an unrelated reference and does not match CLINITAXI's real signage. Azul Caja (`#1c6fd8`) is the only accent.
 - **Don't** use success green (`#0f8a4b`) as a section label or eyebrow color. It means "validated" — not "here begins a new section."
 - **Don't** add a third shadow context. The glassmorphism nav and the credential card shadow are the system's only two elevation moments.
 - **Don't** use gradient text. Emphasis is weight and size; gradient is a costume.
@@ -281,4 +281,4 @@ The "CLINITAXi" name-mark, echoing the italic condensed lettering on the company
 - **Don't** use plain `<span>` for the phone number. Every appearance of `+569 5064 6818` must be a tappable `<a href="tel:">` link.
 - **Don't** use the Azul Caja accent color as a section background, including the header. On light pages, Azul Caja means CTA — not surface.
 - **Don't** use JetBrains Mono for section labels or eyebrows. Its register signals data and measurement; eyebrow kickers above headings are banned entirely — the heading carries its own weight.
-- **Don't** apply the Saira Condensed wordmark font to running text or headings — it is reserved for the "CLINITAXi" name-mark only.
+- **Don't** apply the Saira Condensed wordmark font to running text or headings — it is reserved for the "CLINITAXI" name-mark only.
