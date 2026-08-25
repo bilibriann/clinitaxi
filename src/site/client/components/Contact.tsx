@@ -73,7 +73,7 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
           <div className="space-y-10">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                Contacto
+                Contáctanos
               </h2>
             </div>
             <div className="space-y-5">
