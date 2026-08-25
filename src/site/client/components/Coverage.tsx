@@ -222,16 +222,6 @@ export default function Coverage({ regions }: { regions: Region[] }) {
             })}
           </svg>
 
-          {/* Norte y Sur sobre el eje vertical del mapa: el mapa está centrado
-              en el lienzo (MAP_X = (CANVAS_W - ancho)/2), así que su eje cae
-              exactamente en el 50% del contenedor. */}
-          <p className="absolute top-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
-            Norte
-          </p>
-          <p className="absolute bottom-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
-            Sur
-          </p>
-
           {placed.map((p) => (
             <div
               key={p.region.name}
@@ -259,9 +249,6 @@ export default function Coverage({ regions }: { regions: Region[] }) {
         <div className="lg:hidden">
           <div className="flex justify-center">
             <div className="relative">
-              <p className="absolute top-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
-                Norte
-              </p>
               <svg
                 viewBox={`0 0 ${CHILE_VIEWBOX_WIDTH} ${CHILE_VIEWBOX_HEIGHT}`}
                 className="block h-[340px] w-auto"
@@ -282,9 +269,6 @@ export default function Coverage({ regions }: { regions: Region[] }) {
                   />
                 ))}
               </svg>
-              <p className="absolute bottom-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
-                Sur
-              </p>
             </div>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">

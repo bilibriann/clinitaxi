@@ -39,7 +39,7 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="space-y-10">
               <div className="space-y-4 invisible">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Contacto</h2>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Contáctanos</h2>
               </div>
               <div className="space-y-5">
                 <div className="flex items-center gap-5">
