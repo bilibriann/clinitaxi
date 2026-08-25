@@ -22,29 +22,46 @@ export default function Hero({
       ref={sectionRef}
       id="inicio"
       className="relative overflow-hidden pt-40 pb-28 md:pt-48 md:pb-36"
-      style={{
-        backgroundImage: `url(${base}images/hero-background.png)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'bottom left',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
-      <div className="container-max mx-auto px-4 md:px-12">
+      {/* El fondo vive en su propia capa para poder animarlo (zoom-out
+          cinematográfico) sin mover el contenido. Ocupa exactamente la caja de
+          la sección, así que la geometría que mide AdaptiveText no cambia. */}
+      <div
+        aria-hidden="true"
+        className="hero-fondo absolute inset-0"
+        style={{
+          backgroundImage: `url(${base}images/hero-background.png)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom left',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
+      <div className="container-max relative z-10 mx-auto px-4 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h1 className="text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+            <h1
+              className="elemento-aparece text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight"
+              style={{ animationDelay: '200ms' }}
+            >
               <AdaptiveText text="Taxímetros certificados." {...adaptive} />
             </h1>
-            <p className="text-lg lg:text-xl max-w-xl">
+            <p
+              className="elemento-aparece text-lg lg:text-xl max-w-xl"
+              style={{ animationDelay: '380ms' }}
+            >
               <AdaptiveText
                 text={`Equipos no adulterables, aprobados por el Ministerio de Transportes de Chile, con más de ${yearsOfExperience} años de trayectoria y cobertura a nivel nacional.`}
                 {...adaptive}
               />
             </p>
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div
+              className="elemento-entrada flex flex-wrap gap-4 pt-2"
+              style={{ animationDelay: '560ms' }}
+            >
               <a
                 href="tel:+56950646818"
-                className="lg:hidden bg-accent text-on-accent px-8 py-4 rounded-lg font-bold hover:brightness-110 active:scale-95 transition-all text-base flex items-center gap-2"
+                className="lg:hidden bg-accent text-on-accent px-8 py-4 rounded-lg font-bold hover:brightness-110 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 active:scale-95 active:translate-y-0 transition-all duration-200 text-base flex items-center gap-2"
               >
                 <span
                   className="material-symbols-outlined text-lg"
@@ -56,21 +73,30 @@ export default function Hero({
               </a>
               <a
                 href="#productos"
-                className="hidden lg:inline-flex bg-accent text-on-accent px-8 py-4 rounded-lg font-bold hover:brightness-110 active:scale-95 transition-all text-base"
+                className="group hidden lg:inline-flex items-center gap-2 bg-accent text-on-accent px-8 py-4 rounded-lg font-bold hover:brightness-110 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 active:scale-95 active:translate-y-0 transition-all duration-200 text-base"
               >
                 Ver Productos
+                <span
+                  className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
+                  arrow_forward
+                </span>
               </a>
               <a
                 href="#contacto"
-                className="bg-white border-2 border-outline text-primary px-8 py-4 rounded-lg font-bold hover:bg-surface-alt transition-all text-base"
+                className="bg-white border-2 border-outline text-primary px-8 py-4 rounded-lg font-bold hover:bg-surface-alt hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg active:scale-95 active:translate-y-0 transition-all duration-200 text-base"
               >
                 Contáctanos
               </a>
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-end">
-            <div className="relative w-full max-w-xl">
+          <div
+            className="elemento-entrada hidden lg:flex justify-end"
+            style={{ animationDelay: '700ms' }}
+          >
+            <div className="group relative w-full max-w-xl">
               <img
                 src={`${base}images/taximetro.jpg`}
                 srcSet={`${base}images/taximetro-800.jpg 800w, ${base}images/taximetro.jpg 1600w`}
@@ -80,7 +106,7 @@ export default function Hero({
                 fetchPriority="high"
                 decoding="async"
                 alt="Taxímetro CLINITAXI Metrix-F185 con su pantalla azul encendida"
-                className="w-full rounded-3xl shadow-2xl shadow-black/50 border border-white/10 object-cover"
+                className="w-full rounded-3xl shadow-2xl shadow-black/50 border border-white/10 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute -bottom-6 -left-8 w-60 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10">
                 <div className="h-0.5 bg-accent" />
@@ -140,6 +166,22 @@ export default function Hero({
           </div>
         </div>
       </div>
+
+      {/* Indicador de scroll: solo la flecha, en azul de acento para que se lea
+          tanto sobre la franja navy como sobre el blanco del swoosh. */}
+      <a
+        href="#servicios"
+        aria-label="Ir a la siguiente sección"
+        className="elemento-aparece absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2"
+        style={{ animationDelay: '1200ms' }}
+      >
+        <span
+          className="scroll-flecha material-symbols-outlined text-accent text-4xl"
+          aria-hidden="true"
+        >
+          keyboard_arrow_down
+        </span>
+      </a>
     </section>
   );
 }

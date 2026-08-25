@@ -1,4 +1,5 @@
 import type { SiteViewModel } from '../../site.service';
+import Reveal from './Reveal';
 
 export default function Contact({ contact }: { contact: SiteViewModel['contact'] }) {
   const base = import.meta.env.BASE_URL;
@@ -76,22 +77,22 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
               </h2>
             </div>
             <div className="space-y-5">
-              <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0">
+              <div className="group flex items-center gap-5">
+                <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent">
                   <span className="material-symbols-outlined">call</span>
                 </div>
                 <a href="tel:+56950646818" className="font-semibold text-white hover:text-primary transition-colors">{contact.phone}</a>
               </div>
-              <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0">
+              <div className="group flex items-center gap-5">
+                <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent">
                   <span className="material-symbols-outlined">schedule</span>
                 </div>
                 <span className="font-semibold text-white">
                   Lun a Vie, 9:30 - 16:00 hrs (horario <span className="text-primary">continuado)</span>
                 </span>
               </div>
-              <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0">
+              <div className="group flex items-center gap-5">
+                <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent">
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
                 <span className="font-semibold text-white">{contact.address}</span>
@@ -111,17 +112,20 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-outline-variant h-64">
+            <Reveal className="rounded-2xl overflow-hidden border border-outline-variant h-64">
               <iframe
                 className="w-full h-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 src={contact.mapEmbedSrc}
               ></iframe>
-            </div>
+            </Reveal>
           </div>
 
-          <div className="bg-surface-alt p-8 md:p-10 rounded-2xl border border-outline-variant/60">
+          <Reveal
+            variante="derecha"
+            className="bg-surface-alt p-8 md:p-10 rounded-2xl border border-outline-variant/60"
+          >
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -157,12 +161,12 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
               </div>
               <button
                 type="submit"
-                className="w-full bg-primary text-on-primary py-4 rounded-lg font-bold hover:bg-primary-container active:scale-[0.98] transition-all"
+                className="w-full bg-primary text-on-primary py-4 rounded-lg font-bold hover:bg-primary-container hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] active:translate-y-0 transition-all duration-200"
               >
                 Enviar mensaje
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,15 +1,16 @@
 import type { SiteViewModel } from '../../site.service';
+import Reveal from './Reveal';
 
 export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
   return (
     <section id="servicios" className="py-24 bg-white border-b border-outline-variant/40">
       <div className="container-max mx-auto px-4 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
+          <Reveal variante="izquierda" className="space-y-8">
             <span className="text-success font-label text-xs tracking-widest uppercase font-bold">
               Nuestro Compromiso
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
+            <h2 className="linea-decorativa text-3xl md:text-4xl font-bold text-primary tracking-tight">
               Confianza construida en precisión
             </h2>
             <p className="text-on-surface-variant text-lg leading-relaxed">
@@ -17,8 +18,8 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
               la normativa vigente y respaldan la relación entre conductores y pasajeros.
             </p>
             <div className="space-y-6 pt-2">
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+              <div className="item-interactivo group flex gap-5 items-start rounded-xl p-2 -m-2">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:bg-accent group-hover:text-on-accent">
                   <span className="material-symbols-outlined">verified_user</span>
                 </div>
                 <div>
@@ -28,8 +29,8 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+              <div className="item-interactivo group flex gap-5 items-start rounded-xl p-2 -m-2">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:bg-accent group-hover:text-on-accent">
                   <span className="material-symbols-outlined">lock</span>
                 </div>
                 <div>
@@ -41,9 +42,9 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-surface-alt rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2">
+          </Reveal>
+          <Reveal variante="derecha" retraso={120} className="grid grid-cols-2 gap-4">
+            <div className="tarjeta-interactiva border border-transparent bg-surface-alt rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2">
               <span className="text-4xl font-extrabold text-primary">
                 {stats.yearsOfExperience}
               </span>
@@ -51,7 +52,7 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
                 Años de experiencia
               </span>
             </div>
-            <div className="bg-surface-alt rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2">
+            <div className="tarjeta-interactiva border border-transparent bg-surface-alt rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2">
               <span className="text-4xl font-extrabold text-primary">
                 {stats.regionsCovered}
               </span>
@@ -59,7 +60,7 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
                 Regiones con cobertura
               </span>
             </div>
-            <div className="bg-primary rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2 col-span-2">
+            <div className="tarjeta-interactiva border border-transparent bg-primary rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2 col-span-2">
               <span className="material-symbols-outlined text-accent text-3xl">
                 workspace_premium
               </span>
@@ -67,7 +68,7 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
                 Aprobados por el Ministerio de Transportes
               </span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

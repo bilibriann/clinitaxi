@@ -8,10 +8,12 @@ import Coverage from './components/Coverage';
 import News from './components/News';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SmoothScroll from './components/SmoothScroll';
 
 export default function App() {
   return (
     <>
+      <SmoothScroll />
       <Header nav={siteData.nav} />
       <main>
         <Hero
@@ -27,7 +29,6 @@ export default function App() {
       </main>
       <Footer
         contact={siteData.contact}
-        socialLinks={siteData.socialLinks}
         yearsOfExperience={siteData.stats.yearsOfExperience}
       />
     </>

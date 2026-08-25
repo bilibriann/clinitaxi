@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Region } from '../../site.service';
+import Reveal from './Reveal';
 import {
   CHILE_PATH,
   CHILE_VIEWBOX_HEIGHT,
@@ -171,21 +172,21 @@ export default function Coverage({ regions }: { regions: Region[] }) {
   return (
     <section id="cobertura" className="py-24 bg-white">
       <div className="container-max mx-auto px-4 md:px-12">
-        <div className="mb-14 border-b border-outline-variant/40 pb-8">
+        <Reveal className="mb-14 border-b border-outline-variant/40 pb-8">
           <span className="text-success font-label text-xs tracking-widest uppercase font-bold">
             Presencia nacional
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight mt-2">
+          <h2 className="linea-decorativa text-3xl md:text-4xl font-bold text-primary tracking-tight mt-2">
             Cobertura regional
           </h2>
           <p className="text-on-surface-variant max-w-2xl mt-4">
             Atendemos a conductores y operadores en las principales regiones de
             Chile. Contacta directamente al representante de tu zona.
           </p>
-        </div>
+        </Reveal>
 
         {/* Escritorio: mapa con las fichas a ambos costados */}
-        <div className="hidden lg:block relative mx-auto aspect-27/20 w-full max-w-4xl">
+        <Reveal className="hidden lg:block relative mx-auto aspect-27/20 w-full max-w-4xl">
           <svg
             viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
             className="absolute inset-0 h-full w-full"
@@ -221,10 +222,13 @@ export default function Coverage({ regions }: { regions: Region[] }) {
             })}
           </svg>
 
-          <p className="absolute left-0 top-0 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
+          {/* Norte y Sur sobre el eje vertical del mapa: el mapa está centrado
+              en el lienzo (MAP_X = (CANVAS_W - ancho)/2), así que su eje cae
+              exactamente en el 50% del contenedor. */}
+          <p className="absolute top-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
             Norte
           </p>
-          <p className="absolute bottom-0 left-0 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
+          <p className="absolute bottom-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
             Sur
           </p>
 
@@ -249,40 +253,47 @@ export default function Coverage({ regions }: { regions: Region[] }) {
               />
             </div>
           ))}
-        </div>
+        </Reveal>
 
         {/* Móvil: mapa compacto y fichas apiladas */}
         <div className="lg:hidden">
           <div className="flex justify-center">
-            <svg
-              viewBox={`0 0 ${CHILE_VIEWBOX_WIDTH} ${CHILE_VIEWBOX_HEIGHT}`}
-              className="h-[340px] w-auto"
-              role="img"
-              aria-label={`Mapa de Chile con las ${placed.length} ubicaciones de CLINITAXI`}
-            >
-              <ChileShape strokeWidth={1} />
-              {placed.map((p) => (
-                <circle
-                  key={p.region.name}
-                  cx={p.x}
-                  cy={p.y}
-                  r={9}
-                  fill="var(--color-accent)"
-                  stroke="#ffffff"
-                  strokeWidth={3}
-                  vectorEffect="non-scaling-stroke"
-                />
-              ))}
-            </svg>
+            <div className="relative">
+              <p className="absolute top-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
+                Norte
+              </p>
+              <svg
+                viewBox={`0 0 ${CHILE_VIEWBOX_WIDTH} ${CHILE_VIEWBOX_HEIGHT}`}
+                className="block h-[340px] w-auto"
+                role="img"
+                aria-label={`Mapa de Chile con las ${placed.length} ubicaciones de CLINITAXI`}
+              >
+                <ChileShape strokeWidth={1} />
+                {placed.map((p) => (
+                  <circle
+                    key={p.region.name}
+                    cx={p.x}
+                    cy={p.y}
+                    r={9}
+                    fill="var(--color-accent)"
+                    stroke="#ffffff"
+                    strokeWidth={3}
+                    vectorEffect="non-scaling-stroke"
+                  />
+                ))}
+              </svg>
+              <p className="absolute bottom-0 left-1/2 -translate-x-1/2 font-label text-xs uppercase tracking-widest text-on-surface-variant/60">
+                Sur
+              </p>
+            </div>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {regions.map((region) => (
-              <div
-                key={region.name}
-                className="rounded-xl border border-outline-variant p-5 transition-colors hover:border-accent/40"
-              >
-                <RegionInfo region={region} align="left" />
-              </div>
+            {regions.map((region, indice) => (
+              <Reveal key={region.name} retraso={indice * 90}>
+                <div className="tarjeta-interactiva h-full rounded-xl border border-outline-variant p-5">
+                  <RegionInfo region={region} align="left" />
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

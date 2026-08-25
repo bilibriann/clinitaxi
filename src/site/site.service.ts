@@ -16,12 +16,6 @@ export interface Region {
   address?: string;
 }
 
-export interface SocialLink {
-  label: string;
-  href: string;
-  icon: string;
-}
-
 export interface SiteViewModel {
   title: string;
   description: string;
@@ -39,7 +33,6 @@ export interface SiteViewModel {
     website: string;
     mapEmbedSrc: string;
   };
-  socialLinks: SocialLink[];
 }
 
 @Injectable()
@@ -129,12 +122,6 @@ export class SiteService {
         mapEmbedSrc:
           'https://www.google.com/maps?q=Vargas+Fontecilla+4399,+Quinta+Normal,+Chile&output=embed',
       },
-      socialLinks: [
-        { label: 'Facebook', href: '#', icon: 'thumb_up' },
-        { label: 'Instagram', href: '#', icon: 'photo_camera' },
-        { label: 'Twitter', href: '#', icon: 'alternate_email' },
-        { label: 'YouTube', href: '#', icon: 'smart_display' },
-      ],
     };
   }
 }

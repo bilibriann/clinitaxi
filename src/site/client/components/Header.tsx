@@ -13,9 +13,9 @@ export default function Header({ nav }: { nav: NavLink[] }) {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 glass-nav border-b transition-colors duration-300 ${
+      className={`fixed top-0 w-full z-50 glass-nav border-b transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 border-outline'
+          ? 'bg-white/95 border-outline sombra-media'
           : 'bg-primary/95 border-white/10'
       }`}
     >
@@ -37,7 +37,7 @@ export default function Header({ nav }: { nav: NavLink[] }) {
             <a
               key={item.href}
               href={item.href}
-              className={`text-sm font-bold transition-colors ${
+              className={`nav-indicador text-sm font-bold transition-colors ${
                 scrolled
                   ? 'text-on-surface-variant hover:text-on-surface'
                   : 'text-on-primary/90 hover:text-on-primary'
@@ -61,7 +61,7 @@ export default function Header({ nav }: { nav: NavLink[] }) {
           </a>
           <a
             href="#contacto"
-            className="bg-accent text-on-accent px-5 py-2.5 rounded-lg font-semibold text-sm hover:brightness-110 active:scale-95 transition-all"
+            className="bg-accent text-on-accent px-5 py-2.5 rounded-lg font-semibold text-sm hover:brightness-110 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/25 active:scale-95 active:translate-y-0 transition-all duration-200"
           >
             Contáctanos
           </a>
