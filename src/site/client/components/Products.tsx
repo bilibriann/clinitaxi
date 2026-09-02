@@ -16,14 +16,12 @@ export default function Products() {
                   imagen en hover sin desbordar la esquina redondeada. */}
               <div className="group overflow-hidden rounded-xl shadow-[0_4px_24px_rgba(12,63,126,0.12)]">
                 <img
-                  src={`${base}images/taximetro.jpg`}
-                  srcSet={`${base}images/taximetro-800.jpg 800w, ${base}images/taximetro.jpg 1600w`}
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  width={1600}
-                  height={900}
+                  src={`${base}images/taximetro-01.svg`}
+                  width={442}
+                  height={246}
                   loading="lazy"
                   decoding="async"
-                  alt="Taxímetro CLINITAXI modelo Metrix-F185 con pantalla azul encendida e impresora"
+                  alt="Taxímetro CLINITAXI con pantalla LED encendida e impresora"
                   className="w-full transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                 />
               </div>

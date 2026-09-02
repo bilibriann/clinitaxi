@@ -2,6 +2,8 @@ import type { SiteViewModel } from '../../site.service';
 import Reveal from './Reveal';
 
 export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
+  const base = import.meta.env.BASE_URL;
+
   return (
     <section id="servicios" className="py-24 bg-white border-b border-outline-variant/40">
       <div className="container-max mx-auto px-4 md:px-12">
@@ -44,6 +46,24 @@ export default function Services({ stats }: { stats: SiteViewModel['stats'] }) {
             </div>
           </Reveal>
           <Reveal variante="derecha" retraso={120} className="grid grid-cols-2 gap-4">
+            <figure className="col-span-2 w-full max-w-xs sm:max-w-sm mx-auto space-y-3">
+              {/* Mismo tratamiento que la figura de Productos: el wrapper recorta
+                  el zoom del hover para que no desborde la esquina redondeada. */}
+              <div className="group overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(12,63,126,0.12)]">
+                <img
+                  src={`${base}images/taximetro-02.svg`}
+                  width={566}
+                  height={601}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Placa electrónica del taxímetro CLINITAXI con la leyenda Hecho en Chile por Clinitaxi"
+                  className="w-full aspect-[4/3] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                />
+              </div>
+              <figcaption className="text-sm text-on-surface-variant">
+                Electrónica diseñada y fabricada en Chile por CLINITAXI.
+              </figcaption>
+            </figure>
             <div className="tarjeta-interactiva border border-transparent bg-surface-alt rounded-2xl p-8 flex flex-col justify-center items-center text-center gap-2">
               <span className="text-4xl font-extrabold text-primary">
                 {stats.yearsOfExperience}
