@@ -1,4 +1,5 @@
 import type { SiteViewModel } from '../../site.service';
+import ContactForm from './ContactForm';
 import Reveal from './Reveal';
 
 export default function Contact({ contact }: { contact: SiteViewModel['contact'] }) {
@@ -72,7 +73,7 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-10">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
                 Contáctanos
               </h2>
             </div>
@@ -81,34 +82,32 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
                 <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent">
                   <span className="material-symbols-outlined">call</span>
                 </div>
-                <a href="tel:+56950646818" className="font-semibold text-white hover:text-primary transition-colors">{contact.phone}</a>
+                <a href="tel:+56950646818" className="font-semibold text-black hover:text-accent transition-colors">{contact.phone}</a>
               </div>
               <div className="group flex items-center gap-5">
                 <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent">
                   <span className="material-symbols-outlined">schedule</span>
                 </div>
-                <span className="font-semibold text-white">
-                  Lun a Vie, 9:30 - 16:00 hrs (horario <span className="text-primary">continuado)</span>
-                </span>
+                <span className="font-semibold text-black">{contact.hours}</span>
               </div>
               <div className="group flex items-center gap-5">
                 <div className="w-12 h-12 rounded-full bg-surface-alt border border-outline-variant flex items-center justify-center text-primary shrink-0 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent">
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
-                <span className="font-semibold text-white">{contact.address}</span>
+                <span className="font-semibold text-black">{contact.address}</span>
               </div>
               <div className="h-px bg-outline-variant" />
               <div className="flex items-center gap-5">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-on-accent shrink-0">
                   <span className="material-symbols-outlined">mail</span>
                 </div>
-                <a href={`mailto:${contact.email}`} className="font-semibold text-white hover:text-primary transition-colors">{contact.email}</a>
+                <a href={`mailto:${contact.email}`} className="font-semibold text-black hover:text-accent transition-colors">{contact.email}</a>
               </div>
               <div className="flex items-center gap-5">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-on-accent shrink-0">
                   <span className="material-symbols-outlined">language</span>
                 </div>
-                <a href={`https://${contact.website}`} className="font-semibold text-white hover:text-primary transition-colors">{contact.website}</a>
+                <a href={`https://${contact.website}`} className="font-semibold text-black hover:text-accent transition-colors">{contact.website}</a>
               </div>
             </div>
 
@@ -126,46 +125,7 @@ export default function Contact({ contact }: { contact: SiteViewModel['contact']
             variante="derecha"
             className="bg-surface-alt p-8 md:p-10 rounded-2xl border border-outline-variant/60"
           >
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nombre completo"
-                    className="w-full bg-white border border-outline-variant rounded-lg h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="correo@ejemplo.com"
-                    className="w-full bg-white border border-outline-variant rounded-lg h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                  Mensaje
-                </label>
-                <textarea
-                  rows={5}
-                  placeholder="¿En qué podemos ayudarte?"
-                  className="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-primary text-on-primary py-4 rounded-lg font-bold hover:bg-primary-container hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] active:translate-y-0 transition-all duration-200"
-              >
-                Enviar mensaje
-              </button>
-            </form>
+            <ContactForm email={contact.email} />
           </Reveal>
         </div>
       </div>
