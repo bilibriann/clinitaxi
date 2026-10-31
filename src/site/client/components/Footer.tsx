@@ -12,8 +12,11 @@ export default function Footer({ contact, yearsOfExperience }: FooterProps) {
       <div className="container-max mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10">
         <Reveal className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-accent text-2xl">local_taxi</span>
-            <span className="font-wordmark italic font-bold text-xl">CLINITAXI</span>
+            <span className="material-symbols-outlined text-celeste text-2xl">local_taxi</span>
+            <span className="font-wordmark italic font-bold text-xl">
+              <span className="text-white">CLINI</span>
+              <span className="text-celeste">TAXI</span>
+            </span>
           </div>
           <p className="text-white/60 text-sm leading-relaxed">
             Taxímetros certificados y no adulterables, con más de {yearsOfExperience} años de

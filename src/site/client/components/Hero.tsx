@@ -1,6 +1,3 @@
-import { useRef } from 'react';
-import AdaptiveText from './AdaptiveText';
-
 export default function Hero({
   yearsOfExperience,
   regionsCovered,
@@ -8,24 +5,15 @@ export default function Hero({
   yearsOfExperience: string;
   regionsCovered: number;
 }) {
-  const sectionRef = useRef<HTMLElement>(null);
   const base = import.meta.env.BASE_URL;
-  const adaptive = {
-    imageSrc: `${base}images/hero-swoosh.png`,
-    sectionRef,
-    lightClassName: 'text-white',
-    darkClassName: 'text-primary',
-  };
 
   return (
     <section
-      ref={sectionRef}
       id="inicio"
       className="relative overflow-hidden pt-40 pb-28 md:pt-48 md:pb-36"
     >
       {/* El fondo vive en su propia capa para poder animarlo (zoom-out
-          cinematográfico) sin mover el contenido. Ocupa exactamente la caja de
-          la sección, así que la geometría que mide AdaptiveText no cambia. */}
+          cinematográfico) sin mover el contenido. */}
       <div
         aria-hidden="true"
         className="hero-fondo absolute inset-0"
@@ -40,21 +28,35 @@ export default function Hero({
       <div className="container-max relative z-10 mx-auto px-4 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h1
-              className="elemento-aparece text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight"
+            {/* Tarjeta blanca: el texto va en negro y se lee igual sobre la
+                franja navy que sobre el blanco del swoosh. */}
+            <div
+              className="elemento-aparece relative max-w-xl rounded-3xl bg-white/95 p-7 md:p-9 shadow-2xl shadow-black/30 border-l-8 border-accent"
               style={{ animationDelay: '200ms' }}
             >
-              <AdaptiveText text="Taxímetros certificados." {...adaptive} />
-            </h1>
-            <p
-              className="elemento-aparece text-lg lg:text-xl max-w-xl"
-              style={{ animationDelay: '380ms' }}
-            >
-              <AdaptiveText
-                text={`Equipos no adulterables, aprobados por el Ministerio de Transportes de Chile, con más de ${yearsOfExperience} años de trayectoria y cobertura a nivel nacional.`}
-                {...adaptive}
-              />
-            </p>
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 font-label text-xs font-bold uppercase tracking-widest text-accent">
+                <span className="material-symbols-outlined text-base" aria-hidden="true">
+                  verified
+                </span>
+                Aprobados por el MTT
+              </span>
+              <h1 className="mt-5 text-5xl lg:text-7xl font-extrabold leading-[1.02] tracking-tight text-black">
+                Taxímetros{' '}
+                <span className="relative isolate inline-block">
+                  certificados.
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-1 -z-10 h-3 lg:h-4 rounded-sm bg-accent/30"
+                  />
+                </span>
+              </h1>
+              <p className="mt-5 text-lg lg:text-xl leading-relaxed text-black">
+                Equipos <strong className="font-bold">no adulterables</strong>, aprobados por el{' '}
+                <strong className="font-bold">Ministerio de Transportes de Chile</strong>, con más de{' '}
+                <strong className="font-bold">{yearsOfExperience} años</strong> de trayectoria y
+                cobertura a nivel nacional.
+              </p>
+            </div>
             <div
               className="elemento-entrada flex flex-wrap gap-4 pt-2"
               style={{ animationDelay: '560ms' }}

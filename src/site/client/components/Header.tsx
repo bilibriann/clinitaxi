@@ -20,16 +20,13 @@ export default function Header({ nav }: { nav: NavLink[] }) {
       }`}
     >
       <nav className="container-max mx-auto px-4 md:px-12 flex items-center justify-between h-20">
-        <a href="#inicio" className="flex items-center gap-2">
-          <span
-            className={`material-symbols-outlined text-3xl transition-colors ${scrolled ? 'text-primary' : 'text-on-primary'}`}
-          >
-            local_taxi
-          </span>
-          <span
-            className={`font-wordmark italic font-bold text-2xl tracking-tight transition-colors ${scrolled ? 'text-primary' : 'text-on-primary'}`}
-          >
-            CLINITAXI
+        {/* El logo va sobre una placa navy para que "CLINI" en blanco se lea
+            también cuando el header pasa a fondo blanco al hacer scroll. */}
+        <a href="#inicio" className="flex items-center gap-2 rounded-lg bg-primary px-3 py-1.5">
+          <span className="material-symbols-outlined text-3xl text-celeste">local_taxi</span>
+          <span className="font-wordmark italic font-bold text-2xl tracking-tight">
+            <span className="text-white">CLINI</span>
+            <span className="text-celeste">TAXI</span>
           </span>
         </a>
         <div className="hidden md:flex gap-8 items-center">
