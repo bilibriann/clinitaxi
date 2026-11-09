@@ -41,14 +41,7 @@ export default function Hero({
                 Aprobados por el MTT
               </span>
               <h1 className="mt-5 text-5xl lg:text-7xl font-extrabold leading-[1.02] tracking-tight text-black">
-                Taxímetros{' '}
-                <span className="relative isolate inline-block">
-                  certificados.
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-0 bottom-1 -z-10 h-3 lg:h-4 rounded-sm bg-accent/30"
-                  />
-                </span>
+                Taxímetros certificados.
               </h1>
               <p className="mt-5 text-lg lg:text-xl leading-relaxed text-black">
                 Equipos <strong className="font-bold">no adulterables</strong>, aprobados por el{' '}

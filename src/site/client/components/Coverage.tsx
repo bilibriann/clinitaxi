@@ -185,69 +185,73 @@ export default function Coverage({ regions }: { regions: Region[] }) {
           </p>
         </Reveal>
 
-        {/* Escritorio: mapa con las fichas a ambos costados */}
-        <Reveal className="hidden lg:block relative mx-auto aspect-27/20 w-full max-w-4xl">
-          <svg
-            viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
-            className="absolute inset-0 h-full w-full"
-            aria-hidden="true"
-          >
-            <g transform={`translate(${MAP_X} 0)`}>
-              <ChileShape strokeWidth={1.25} />
-            </g>
-            {placed.map((p) => {
-              const on = active === p.region.name;
-              return (
-                <g key={p.region.name}>
-                  <path
-                    d={leaderPath(p)}
-                    fill="none"
-                    stroke="var(--color-primary)"
-                    strokeWidth={on ? 1.6 : 0.8}
-                    strokeOpacity={on ? 0.9 : 0.35}
-                    vectorEffect="non-scaling-stroke"
-                  />
-                  <circle
-                    cx={MAP_X + p.x}
-                    cy={p.y}
-                    r={on ? 10 : 7}
-                    fill="var(--color-accent)"
-                    stroke="#ffffff"
-                    strokeWidth={2}
-                    vectorEffect="non-scaling-stroke"
-                    className="transition-all"
-                  />
-                </g>
-              );
-            })}
-          </svg>
-
-          {placed.map((p) => (
-            <div
-              key={p.region.name}
-              onMouseEnter={() => setActive(p.region.name)}
-              onMouseLeave={() => setActive(null)}
-              style={{
-                top: `${(p.labelY / CANVAS_H) * 100}%`,
-                width: `${CARD_WIDTH}%`,
-                ...(p.side === 'left'
-                  ? { right: `${100 - CARD_EDGE}%` }
-                  : { left: `${100 - CARD_EDGE}%` }),
-              }}
-              className="absolute -translate-y-1/2"
+        {/* Escritorio: mapa con las fichas a ambos costados, dentro de la misma
+            tarjeta blanca del inicio para que destaque sobre el fondo blanco. El
+            lienzo interior sigue en max-w-4xl, que es lo que asume CONTAINER_PX. */}
+        <Reveal className="hidden lg:block mx-auto w-full max-w-5xl rounded-3xl bg-white p-9 shadow-2xl shadow-black/20 border border-outline-variant/60 border-l-8 border-l-accent">
+          <div className="relative mx-auto aspect-27/20 w-full max-w-4xl">
+            <svg
+              viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
+              className="absolute inset-0 h-full w-full"
+              aria-hidden="true"
             >
-              <RegionInfo
-                region={p.region}
-                align={p.side === 'left' ? 'right' : 'left'}
-                compact
-              />
-            </div>
-          ))}
+              <g transform={`translate(${MAP_X} 0)`}>
+                <ChileShape strokeWidth={1.25} />
+              </g>
+              {placed.map((p) => {
+                const on = active === p.region.name;
+                return (
+                  <g key={p.region.name}>
+                    <path
+                      d={leaderPath(p)}
+                      fill="none"
+                      stroke="var(--color-primary)"
+                      strokeWidth={on ? 1.6 : 0.8}
+                      strokeOpacity={on ? 0.9 : 0.35}
+                      vectorEffect="non-scaling-stroke"
+                    />
+                    <circle
+                      cx={MAP_X + p.x}
+                      cy={p.y}
+                      r={on ? 10 : 7}
+                      fill="var(--color-accent)"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                      vectorEffect="non-scaling-stroke"
+                      className="transition-all"
+                    />
+                  </g>
+                );
+              })}
+            </svg>
+  
+            {placed.map((p) => (
+              <div
+                key={p.region.name}
+                onMouseEnter={() => setActive(p.region.name)}
+                onMouseLeave={() => setActive(null)}
+                style={{
+                  top: `${(p.labelY / CANVAS_H) * 100}%`,
+                  width: `${CARD_WIDTH}%`,
+                  ...(p.side === 'left'
+                    ? { right: `${100 - CARD_EDGE}%` }
+                    : { left: `${100 - CARD_EDGE}%` }),
+                }}
+                className="absolute -translate-y-1/2"
+              >
+                <RegionInfo
+                  region={p.region}
+                  align={p.side === 'left' ? 'right' : 'left'}
+                  compact
+                />
+              </div>
+            ))}
+          </div>
         </Reveal>
 
         {/* Móvil: mapa compacto y fichas apiladas */}
         <div className="lg:hidden">
-          <div className="flex justify-center">
+          <div className="flex justify-center rounded-3xl bg-white p-6 shadow-2xl shadow-black/20 border border-outline-variant/60 border-l-8 border-l-accent">
             <div className="relative">
               <svg
                 viewBox={`0 0 ${CHILE_VIEWBOX_WIDTH} ${CHILE_VIEWBOX_HEIGHT}`}

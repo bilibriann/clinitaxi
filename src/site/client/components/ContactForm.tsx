@@ -12,7 +12,7 @@ const MOTIVOS = [
   'Otro',
 ] as const;
 
-const LIMITES = { nombre: 80, email: 120, telefono: 20, empresa: 80, mensaje: 1500 };
+const LIMITES = { nombre: 80, email: 120, telefono: 20, mensaje: 1500 };
 const MENSAJE_MIN = 20;
 const TIEMPO_MINIMO_MS = 4000;
 const ESPERA_ENTRE_ENVIOS_MS = 60_000;
@@ -29,10 +29,8 @@ type Campos = {
   nombre: string;
   email: string;
   telefono: string;
-  empresa: string;
   motivo: string;
   mensaje: string;
-  acepta: boolean;
 };
 type Errores = Partial<Record<keyof Campos, string>>;
 type Estado = 'editando' | 'enviado' | 'bloqueado';
@@ -41,10 +39,8 @@ const VACIO: Campos = {
   nombre: '',
   email: '',
   telefono: '',
-  empresa: '',
   motivo: '',
   mensaje: '',
-  acepta: false,
 };
 
 function validar(c: Campos): Errores {
@@ -64,10 +60,8 @@ function validar(c: Campos): Errores {
   if (mensaje.length < MENSAJE_MIN) e.mensaje = `Cuéntanos un poco más (mínimo ${MENSAJE_MIN} caracteres).`;
   else if ((mensaje.match(PATRON_ENLACE) ?? []).length > MAX_ENLACES)
     e.mensaje = `El mensaje no puede tener más de ${MAX_ENLACES} enlaces.`;
-  else if (PATRON_SPAM.test(mensaje) || PATRON_SPAM.test(c.empresa))
+  else if (PATRON_SPAM.test(mensaje))
     e.mensaje = 'El mensaje contiene contenido no permitido.';
-
-  if (!c.acepta) e.acepta = 'Debes aceptar para que podamos responderte.';
   return e;
 }
 
@@ -95,11 +89,7 @@ export default function ContactForm({ email }: { email: string }) {
   const cambiar =
     (campo: keyof Campos) =>
     (ev: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      const valor =
-        ev.target instanceof HTMLInputElement && ev.target.type === 'checkbox'
-          ? ev.target.checked
-          : ev.target.value;
-      setCampos((c) => ({ ...c, [campo]: valor }));
+      setCampos((c) => ({ ...c, [campo]: ev.target.value }));
       if (errores[campo]) setErrores((e) => ({ ...e, [campo]: undefined }));
     };
 
@@ -128,7 +118,6 @@ export default function ContactForm({ email }: { email: string }) {
       `Nombre: ${campos.nombre.trim()}`,
       `Correo: ${campos.email.trim()}`,
       campos.telefono.trim() && `Teléfono: ${campos.telefono.trim()}`,
-      campos.empresa.trim() && `Empresa / línea: ${campos.empresa.trim()}`,
       '',
       campos.mensaje.trim(),
     ]
@@ -224,7 +213,7 @@ export default function ContactForm({ email }: { email: string }) {
           />
           {error('email')}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 md:col-span-2">
           <label htmlFor="contacto-telefono" className={claseLabel}>
             Teléfono
           </label>
@@ -242,22 +231,6 @@ export default function ContactForm({ email }: { email: string }) {
             {...aria('telefono')}
           />
           {error('telefono')}
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="contacto-empresa" className={claseLabel}>
-            Empresa / línea de taxi
-          </label>
-          <input
-            id="contacto-empresa"
-            name="empresa"
-            type="text"
-            autoComplete="organization"
-            maxLength={LIMITES.empresa}
-            placeholder="Opcional"
-            value={campos.empresa}
-            onChange={cambiar('empresa')}
-            className={`${claseInput()} h-12`}
-          />
         </div>
       </div>
 
@@ -320,21 +293,6 @@ export default function ContactForm({ email }: { email: string }) {
           value={trampa}
           onChange={(ev) => setTrampa(ev.target.value)}
         />
-      </div>
-
-      <div className="space-y-2">
-        <label className="flex items-start gap-3 text-sm text-black">
-          <input
-            name="acepta"
-            type="checkbox"
-            checked={campos.acepta}
-            onChange={cambiar('acepta')}
-            className="mt-1 h-4 w-4 accent-primary"
-            {...aria('acepta')}
-          />
-          Acepto que CLINITAXI use estos datos solo para responder mi consulta.
-        </label>
-        {error('acepta')}
       </div>
 
       <button
